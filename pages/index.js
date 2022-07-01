@@ -5,8 +5,15 @@ function HomePage() {
   const [messageFromServer, setMessageFromServer] = useState('');
 
   const fetchMessage = async () => {
-    const res = await axios.get(`${process.env.NEXT_PUBLIC_API}/products`);
-    setMessageFromServer(res.data.message);
+    let message;
+    try {
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_API}/products`);
+
+      message = res.data.message;
+      setMessageFromServer(message);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   // const fetchEvents = async () => {
