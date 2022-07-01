@@ -9,18 +9,18 @@ function HomePage() {
     setMessageFromServer(res.data.message);
   };
 
-  const fetchEvents = async () => {
-    const res = await axios.get(`${process.env.NEXT_PUBLIC_API_GIROQ}/events/`);
-    //Extract the Array contained in the 'events' field.
-    const events = res.data;
-    console.log(events);
-    //Event data is globally accessible. But 'renderEvent' is just to render out the MAP with the markers
-    // setEventData(events);
-  };
+  // const fetchEvents = async () => {
+  //   const res = await axios.get(`${process.env.NEXT_PUBLIC_API_GIROQ}/events/`);
+  //   //Extract the Array contained in the 'events' field.
+  //   const events = res.data;
+  //   console.log(events);
+  //   //Event data is globally accessible. But 'renderEvent' is just to render out the MAP with the markers
+  //   // setEventData(events);
+  // };
 
   useEffect(() => {
     fetchMessage();
-    fetchEvents();
+    // fetchEvents();
   }, []);
 
   return <div>{messageFromServer}</div>;
